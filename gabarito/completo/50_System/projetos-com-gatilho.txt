@@ -1,0 +1,12 @@
+# Projetos que recebem CLAUDE.md apontando para o Cofre.
+# Formato:  caminho relativo a ~  |  descrição da stack (herdada, não se pergunta)
+#
+# Regra: só projeto ATIVO entra aqui. Gatilho em projeto parado é ruído — e um
+# CLAUDE.md desatualizado é pior que nenhum, porque descreve uma stack que
+# ninguém confere mais.
+# O script NUNCA sobrescreve um CLAUDE.md existente; para tirar um projeto,
+# remova a linha e apague o arquivo no projeto.
+#
+# Fora por ora (retomar é descomentar + rodar o script):
+# Documentos/projetos/erp|Laravel + Blade + Bootstrap 4 + jQuery, build com Laravel Mix; MySQL
+# Documentos/projetos/erpsoftemp|Laravel + Blade + Bootstrap 4 + jQuery, build com Laravel Mix; MySQL

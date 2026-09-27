@@ -1,0 +1,25 @@
+# Obsidian — estado de UI / cache local
+.obsidian/workspace*
+.obsidian/cache
+
+# Claude Code — sessão e configurações locais
+.claude/settings.local.json
+.claude/projects/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Logs ad-hoc
+*.log
+
+# Backups arquivados (pesados / históricos — ficam fora do git)
+40_Archive/*.zip
+
+# Placeholders criados pelo Obsidian (canvas/note sem título)
+Sem título.*
+Sem\ título.*
+
+# Python cache dos scripts do Cofre
+50_System/__pycache__/
+*.pyc

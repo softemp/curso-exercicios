@@ -1,0 +1,70 @@
+{
+  "_leia": "Fonte única das cores do Graph View. Edite aqui e rode `python3 50_System/grafo_cores.py` — ele reescreve colorGroups em .obsidian/graph.json e a Legenda_Cores_Grafo. Ver [[Cofre_Grafo_Cores_Configuracao_Versionada]].",
+  "grupos": [
+    {
+      "id": "stubs",
+      "emoji": "⚫ Grafite",
+      "cor": "#4B5563",
+      "nome": "Stubs (neurônios fora do recorte)",
+      "prefixos": [],
+      "tags": [],
+      "paths": [
+        "15_Stubs"
+      ]
+    },
+    {
+      "id": "stack-backend",
+      "emoji": "🟣 Roxo",
+      "cor": "#A879E6",
+      "nome": "Stack backend (Prisma/Zod/Node/TS)",
+      "prefixos": [
+        "Prisma_",
+        "Zod_",
+        "NodeJS_",
+        "TS_"
+      ],
+      "tags": [],
+      "paths": []
+    },
+    {
+      "id": "padraolayout",
+      "emoji": "🟩 Verde",
+      "cor": "#2ECC71",
+      "nome": "padraoLayout (modelo de layout)",
+      "prefixos": [
+        "PadraoLayout_"
+      ],
+      "tags": [
+        "projeto/padraolayout"
+      ],
+      "paths": []
+    },
+    {
+      "id": "governanca",
+      "emoji": "🩶 Prata",
+      "cor": "#B0B8C4",
+      "nome": "Governança do Cofre & ecossistema",
+      "prefixos": [
+        "Eco_",
+        "Cofre_",
+        "Wiki_",
+        "Ecossistema_"
+      ],
+      "tags": [
+        "projeto/cofre"
+      ],
+      "paths": []
+    },
+    {
+      "id": "atlas",
+      "emoji": "⬜ Branco",
+      "cor": "#FFFFFF",
+      "nome": "MOCs & Atlas (hubs/índices)",
+      "prefixos": [],
+      "tags": [],
+      "paths": [
+        "30_Atlas"
+      ]
+    }
+  ]
+}

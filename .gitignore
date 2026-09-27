@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.obsidian/workspace*
+.claude/settings.local.json
+.curso.json
+notas-modulo-1.md

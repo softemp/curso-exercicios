@@ -1,0 +1,3 @@
+[submodule "projeto-exemplo"]
+	path = projeto-exemplo
+	url = https://github.com/softemp/padraoLayout.git

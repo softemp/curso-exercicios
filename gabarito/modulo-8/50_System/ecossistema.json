@@ -1,0 +1,54 @@
+{
+  "_leia": "Manifesto do ecossistema de desenvolvimento: o que TODA máquina do operador (Ubuntu 22.04/24.04) deve ter. Conferido por 50_System/checar_maquina.py (e pelo hook SessionStart). Mudou aqui = git push; as outras máquinas avisam na próxima sessão. Ver [[Eco_Paridade_Entre_Maquinas]].",
+  "versao": 1,
+
+  "ferramentas": [
+    { "cmd": "git",     "obrigatoria": true,  "instalar": "sudo apt install -y git" },
+    { "cmd": "jq",      "obrigatoria": true,  "instalar": "sudo apt install -y jq",      "motivo": "hooks do Claude Code leem JSON com jq" },
+    { "cmd": "python3", "obrigatoria": true,  "instalar": "sudo apt install -y python3", "motivo": "scripts do Cofre" },
+    { "cmd": "node",    "obrigatoria": true,  "instalar": "nvm install --lts",           "motivo": "projetos e servidores MCP dos plugins" },
+    { "cmd": "claude",  "obrigatoria": true,  "instalar": "curl -fsSL https://claude.ai/install.sh | bash" },
+    { "cmd": "bun",     "obrigatoria": false, "instalar": "curl -fsSL https://bun.sh/install | bash", "motivo": "Cartographer", "caminho_extra": "~/.bun/bin" }
+  ],
+
+  "marketplaces": [
+    { "nome": "superpowers-marketplace", "fonte": "obra/superpowers-marketplace" },
+    { "nome": "claude-plugins-official", "fonte": "anthropics/claude-plugins-official" }
+  ],
+
+  "plugins": [
+    { "id": "superpowers@superpowers-marketplace",                            "papel": "processo (brainstorming → plano → TDD → verificação)" },
+    { "id": "superpowers-chrome@superpowers-marketplace",                     "papel": "navegador via CDP (BETA)" },
+    { "id": "superpowers-developing-for-claude-code@superpowers-marketplace", "papel": "docs oficiais do Claude Code e dev de plugin" },
+    { "id": "episodic-memory@superpowers-marketplace",                        "papel": "busca sob demanda em conversas passadas", "status": "piloto desde 2026-09-25" }
+  ],
+
+  "plugins_vetados": [
+    { "nome": "claude-mem", "motivo": "segunda fonte de verdade sem curadoria, grava saída de ferramenta com segredo, worker sempre de pé — parecer em [[Eco_Skills_Auxiliares_Plugin_Dev_E_Documentos]]" }
+  ],
+
+  "claude_md_global": "50_System/claude-global/CLAUDE.md",
+
+  "hooks_globais": [
+    { "id": "lembrete-cofre",        "evento": "UserPromptSubmit", "script": "50_System/hooks/lembrete-cofre.sh",        "timeout": 5,
+      "substitui_legado": "Padroes de engenharia do operador vivem no Cofre" },
+    { "id": "checar-maquina-sessao", "evento": "SessionStart",     "script": "50_System/hooks/checar-maquina-sessao.sh", "timeout": 15, "matcher": "startup" }
+  ],
+
+  "git_hooks_cofre": { "arquivo": "pre-commit", "marca": "Gate de qualidade do Cofre", "instalador": "50_System/install-hooks.sh" },
+
+  "cron": [
+    { "id": "backup-cofre",   "procura": "backup_cofre.sh",   "linha": "0 3 * * * {COFRE}/50_System/backup_cofre.sh" },
+    { "id": "revisao-mensal", "procura": "monthly_review.sh", "linha": "0 9 1 * * bash {COFRE}/50_System/monthly_review.sh >> $HOME/backups/meu-cerebro/revisao_mensal.log 2>&1",
+      "nota": "substitui o cron só de revalidate.py — o monthly_review.sh roda revalidate + drift" }
+  ],
+
+  "cartographer": {
+    "obrigatorio": false,
+    "dir": "{TOOLS}/cartographer",
+    "repo": "https://github.com/kingbootoshi/cartographer.git",
+    "commit": "a62d16981b6aa1f5f6ef56701c49b81a16a8e30a",
+    "patch": "50_System/ferramentas/cartographer-esm-js-ts.patch",
+    "atalho": { "de": "50_System/ferramentas/carto.sh", "para": "{TOOLS}/carto.sh" }
+  }
+}
